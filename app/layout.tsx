@@ -1,18 +1,24 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter, Geologica } from 'next/font/google'
-
-const font = Geologica({ subsets: ['latin'] })
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter, Geologica } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
+const font = Geologica({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Gather',
-  description: 'The future of online socializing, made simple!',
-}
+  title: "Gather",
+  description: "The future of online socializing, made simple!",
+};
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
-      <body className={font.className}>{children}</body>
-    </html>
-  )
+    <ClerkProvider>
+      <html lang="en">
+        <body className={font.className}>{children}</body>
+      </html>
+    </ClerkProvider>
+  );
 }
