@@ -21,13 +21,15 @@ const SetupPage = async () => {
   }
 
   return (
-    <div className=" absolute text-xl top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-      Create a Server
-      <div className="z-[100] fixed flex items-center gap-2 top-0 left-0 p-2">
+    <>
+      <div className=" absolute text-xl top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+        Create a Server
+      </div>
+      <div className=" absolute z-[100] flex items-center gap-2 top-0 left-0 p-2">
         <UserButton afterSignOutUrl="/" />
         <ModeToggle />
       </div>
-    </div>
+    </>
   );
 };
 
