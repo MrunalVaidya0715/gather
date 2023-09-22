@@ -2,6 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Geologica } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { cn } from "@/lib/utils";
 const font = Geologica({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,8 +18,17 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={font.className}>{children}</body>
+      <html lang="en"  suppressHydrationWarning>
+        <body className={cn(font.className, "bg-white dark:bg-[#1d2332]")}>
+          <ThemeProvider 
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            storageKey="gather-theme"
+            >
+          {children}
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
