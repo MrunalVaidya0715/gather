@@ -10,6 +10,7 @@ export default function Home() {
         <ModeToggle />
       </div>
       <div className="flex flex-col items-center">
+        <Image className=" aspect-square object-cover object-center " src='/assets/logo/logo1.png' width={100} height={100} alt="Gather"/>
         <h1 className=" tracking-wider uppercase text-3xl font-bold text-blue-600">
           Gather
         </h1>
