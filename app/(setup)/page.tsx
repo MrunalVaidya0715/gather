@@ -1,3 +1,4 @@
+import ServerModal from "@/components/modals/ServerModal";
 import { ModeToggle } from "@/components/mode-toggle";
 import { db } from "@/lib/db";
 import { initialProfile } from "@/lib/initial-profile";
@@ -23,7 +24,7 @@ const SetupPage = async () => {
   return (
     <>
       <div className=" absolute text-xl top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-        Create a Server
+        <ServerModal/>
       </div>
       <div className=" absolute z-[100] flex items-center gap-2 top-0 left-0 p-2">
         <UserButton afterSignOutUrl="/" />
