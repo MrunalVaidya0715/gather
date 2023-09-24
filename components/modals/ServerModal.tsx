@@ -25,6 +25,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { FileUpload } from "@/components/FileUpload"
 const ServerModal = () => {
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => setIsMounted(true), []);
@@ -67,7 +68,23 @@ const ServerModal = () => {
           <Form {...form}>
             <form className="mt-5" onSubmit={form.handleSubmit(onSubmit)}>
               <div className="">
-                <div className="flex items-center justify-center">Image</div>
+                <div className="flex items-center justify-center">
+                  <FormField
+                    control={form.control}
+                    name="imageUrl"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <FileUpload
+                            endpoint="serverImage"
+                            value={field.value}
+                            onChange={field.onChange}
+                          />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
+                </div>
                 <FormField
                   control={form.control}
                   name="name"
