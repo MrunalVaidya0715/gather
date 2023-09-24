@@ -25,8 +25,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { FileUpload } from "@/components/FileUpload"
+import { FileUpload } from "@/components/FileUpload";
+import axios from 'axios'
+import { useRouter } from "next/navigation";
 const ServerModal = () => {
+  const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => setIsMounted(true), []);
 
@@ -46,7 +49,14 @@ const ServerModal = () => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    try {
+      await axios.post('/api/servers', values)
+      form.reset();
+      router.refresh();
+      window.location.reload();
+    } catch (error) {
+      console.log(error)
+    }
   };
   if (!isMounted) {
     return null;
