@@ -96,7 +96,7 @@ const ServerModal = () => {
                       <FormControl>
                         <Input
                           disabled={isLoading}
-                          className="bg-zinc-300 dark:bg-secondary border-0 text-black focus-visible:ring-0  focus-visible:ring-offset-2"
+                          className="bg-zinc-300 dark:bg-secondary border-0 text-black dark:text-zinc-200 focus-visible:ring-0  focus-visible:ring-offset-2"
                           placeholder="Enter Server Name"
                           {...field}
                         />
