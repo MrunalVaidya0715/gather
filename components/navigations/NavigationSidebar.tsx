@@ -8,6 +8,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 import ToolTip from "../Tooltip";
 import NavigationItem from "./NavigationItem";
+import { ModeToggle } from "../mode-toggle";
+import { UserButton } from "@clerk/nextjs";
 
 const NavigationSidebar = async () => {
   const profile = await CurrentProfile();
@@ -47,6 +49,10 @@ const NavigationSidebar = async () => {
         }
       
       </ScrollArea>
+      <div className=" flex flex-col gap-y-2 items-center">
+        <ModeToggle/>
+        <UserButton afterSignOutUrl="/"/>
+      </div>
     </div>
   );
 };
