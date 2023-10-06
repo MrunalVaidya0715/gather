@@ -42,16 +42,19 @@ const NavigationSidebar = async () => {
       <NavigationAction />
       <Separator />
       <ScrollArea className="h-full">
-        {
-          servers.map((server)=>(
-            <NavigationItem key={server.id} name={server.name} id={server.id} imageUrl={server.imageUrl} />
-          ))
-        }
-      
+        {servers.map((server) => (
+          <div key={server.id} className="mb-4">
+            <NavigationItem
+              id={server.id}
+              name={server.name}
+              imageUrl={server.imageUrl}
+            />
+          </div>
+        ))}
       </ScrollArea>
       <div className=" flex flex-col gap-y-2 items-center">
-        <ModeToggle/>
-        <UserButton afterSignOutUrl="/"/>
+        <ModeToggle />
+        <UserButton afterSignOutUrl="/" />
       </div>
     </div>
   );
